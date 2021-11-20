@@ -50,6 +50,7 @@ Another term for this is **Asymptotic Analysis**.
 # O(n)
 
     - A function whose cost scales linearly with the size of the input
+    - single loops
 
 # O(log(n))
 
@@ -57,3 +58,9 @@ Another term for this is **Asymptotic Analysis**.
     - Less than linear complexity
     - As the input grows, the cost of the algorithm does not increase at the same rate
     - O(log n) algorithms work by dividing a large problem into smaller and smaller chunks
+    - divide and conquer
+
+
+# O(n^2)
+    - A function that exhibits quadratic growth relative to input size
+    - doubly nested for loops
