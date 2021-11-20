@@ -40,7 +40,7 @@ Another term for this is **Asymptotic Analysis**.
 
     - When we're talking about complexity what we're actually talking about is asymptotic analysis, the performance of an algorithm as an input approaches to an upper limit.
 
-# Big-O Classifications
+# Sample Big-O Classifications
 
 # 0(1)
 
@@ -69,6 +69,5 @@ Another term for this is **Asymptotic Analysis**.
 
     - A function which has two inputs that contribute to the growth
     - Example is a nested loop that iterates over two distinct collections of data
-
 
 # Predicting behavior means understanding your domain.
