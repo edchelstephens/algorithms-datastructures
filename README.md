@@ -39,3 +39,21 @@ Another term for this is **Asymptotic Analysis**.
 ## Complexity Analysis
 
     - When we're talking about complexity what we're actually talking about is asymptotic analysis, the performance of an algorithm as an input approaches to an upper limit.
+
+# Big-O Classifications
+
+# 0(1)
+
+    - The cost of algorithm is unchanged by the input size
+    - fix cost algorithm
+
+# O(n)
+
+    - A function whose cost scales linearly with the size of the input
+
+# O(log(n))
+
+    - A function whose cost scales logarithmically with the input size
+    - Less than linear complexity
+    - As the input grows, the cost of the algorithm does not increase at the same rate
+    - O(log n) algorithms work by dividing a large problem into smaller and smaller chunks
