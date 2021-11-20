@@ -71,3 +71,7 @@ Another term for this is **Asymptotic Analysis**.
     - Example is a nested loop that iterates over two distinct collections of data
 
 # Predicting behavior means understanding your domain.
+
+# Big Omega - Ω()
+
+    Just like Big O is for upper bound. Big Omega Ω() is for lower bound.
