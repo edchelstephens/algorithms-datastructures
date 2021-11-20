@@ -33,4 +33,9 @@ Another term for this is **Asymptotic Analysis**.
     - The asymptote of a curve is a line where the distance between the curve and the line approach zero as they tend towards infinity.
 
 ## Asymptotic Analysis
+
     - The measurement of how the inputs of an algorithm affect the behavior as the inputs approach some limit.
+
+## Complexity Analysis
+
+    - When we're talking about complexity what we're actually talking about is asymptotic analysis, the performance of an algorithm as an input approaches to an upper limit.
