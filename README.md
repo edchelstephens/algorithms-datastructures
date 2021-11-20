@@ -24,7 +24,7 @@
 
 Big-O notation represents the upper limit of an algorithm's cost and is associated with a big O parentheses `O(n)` in a formula that uses `n` as the size of the input.
 
-When we're using the Big-O notation, what we're doing is classifying how a function behaves as the size of the input grows or as `n` gets larger. We're trying to estimate how the algoritm scales.
+When we're using the Big-O notation, what we're doing is classifying how a function behaves as the size of the input grows or as `n` gets larger. We're trying to estimate how the algorithm scales.
 
 Another term for this is **Asymptotic Analysis**.
 
