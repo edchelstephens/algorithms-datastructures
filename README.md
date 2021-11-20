@@ -60,7 +60,15 @@ Another term for this is **Asymptotic Analysis**.
     - O(log n) algorithms work by dividing a large problem into smaller and smaller chunks
     - divide and conquer
 
-
 # O(n^2)
+
     - A function that exhibits quadratic growth relative to input size
     - doubly nested for loops
+
+# O(nm)
+
+    - A function which has two inputs that contribute to the growth
+    - Example is a nested loop that iterates over two distinct collections of data
+
+
+# Predicting behavior means understanding your domain.
