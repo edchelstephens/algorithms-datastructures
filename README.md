@@ -31,3 +31,6 @@ Another term for this is **Asymptotic Analysis**.
 ### Asymptote
 
     - The asymptote of a curve is a line where the distance between the curve and the line approach zero as they tend towards infinity.
+
+## Asymptotic Analysis
+    - The measurement of how the inputs of an algorithm affect the behavior as the inputs approach some limit.
