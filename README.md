@@ -17,3 +17,9 @@
 ## Others
 
     - Network transfer, compressions ratios, disk usage
+
+# Measuring Algorithm Complexities
+
+## Big O notation O()
+
+Big-O notation represents the upper limit of an algorithm's cost and is associated with a big O parentheses `O(n)` in a formula that uses `n` as the size of the input.
