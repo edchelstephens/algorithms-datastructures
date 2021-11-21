@@ -1,6 +1,8 @@
 # Testing
 pytest==6.2.5 # https://pypi.org/project/pytest/
 
+pytest-sugar==0.9.4 # https://pypi.org/project/pytest-sugar/
+
 
 # Formatters
 
