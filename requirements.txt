@@ -1,0 +1,7 @@
+# Testing
+pytest==6.2.5 # https://pypi.org/project/pytest/
+
+
+# Formatters
+
+black==21.11b1 # https://pypi.org/project/black/
