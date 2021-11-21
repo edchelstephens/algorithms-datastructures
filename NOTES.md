@@ -75,3 +75,7 @@ Another term for this is **Asymptotic Analysis**.
 # Big Omega - Ω()
 
     Just like Big O is for upper bound. Big Omega Ω() is for lower bound.
+
+# Linked List
+
+    - A container where data is stored in nodes consisting of a single data item and a reference to the next node.
