@@ -1,3 +1,6 @@
+from python.linked_lists.node import Node
+
+
 class LinkedList:
     """Linked list class."""
 
@@ -8,3 +11,8 @@ class LinkedList:
     def __repr__(self) -> str:
         """String representation of linked list."""
         return "LinkedList({})".format(self.head)
+
+    def insert(self, item) -> None:
+        """Insert item to linked list."""
+        if self.head is None:
+            head = Node(item)
