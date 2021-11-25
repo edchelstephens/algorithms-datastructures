@@ -4,6 +4,8 @@ pytest==6.2.5 # https://pypi.org/project/pytest/
 pytest-sugar==0.9.4 # https://pypi.org/project/pytest-sugar/
 
 
+coverage==6.1.2 # https://pypi.org/project/coverage/
+
 # Formatters
 
 black==21.11b1 # https://pypi.org/project/black/
