@@ -6,3 +6,9 @@ branch = True
 omit = 
     *tests*
     *init*
+
+
+[report]
+
+exclude_lines = 
+    pragma no cover

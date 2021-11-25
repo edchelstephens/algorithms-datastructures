@@ -16,9 +16,15 @@ class LinkedList:
 
     def insert(self, item: Any) -> None:
         """Insert item to linked list."""
-        if self.is_empty():
-            self.head = Node(item)
+        try:
+            if self.is_empty():
+                self.head = Node(item)
+        except Exception as exc:  # pragma no cover
+            raise exc
 
     def is_empty(self) -> bool:
         """Check if list is empty."""
-        return self.head is None
+        try:
+            return self.head is None
+        except Exception as exc:  # pragma no cover
+            raise exc
