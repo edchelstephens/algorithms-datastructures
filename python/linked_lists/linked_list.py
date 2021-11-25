@@ -15,4 +15,4 @@ class LinkedList:
     def insert(self, item) -> None:
         """Insert item to linked list."""
         if self.head is None:
-            head = Node(item)
+            self.head = Node(item)
