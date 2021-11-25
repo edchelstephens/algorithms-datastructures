@@ -29,3 +29,12 @@ def test_is_empty_returns_True_on_empty_list():
     linked_list = LinkedList()
 
     assert linked_list.is_empty()
+
+
+def test_is_empty_returns_False_on_non_empty_list():
+    """is_empty() method returns False on non empty list."""
+
+    linked_list = LinkedList()
+    linked_list.insert(1)
+
+    assert not linked_list.is_empty()
