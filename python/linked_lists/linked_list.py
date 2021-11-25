@@ -19,8 +19,14 @@ class LinkedList:
     def insert(self, item: Any) -> None:
         """Insert item to linked list."""
         try:
+            node = Node(item)
+
             if self.is_empty():
-                self.head = Node(item)
+                self.head = node
+            else:
+                tail = self.get_tail()
+                tail.next = node
+
         except Exception as exc:  # pragma no cover
             raise exc
 

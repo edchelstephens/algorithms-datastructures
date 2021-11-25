@@ -1,3 +1,5 @@
+from pprint import pprint
+
 from python.linked_lists.node import Node
 from python.linked_lists.linked_list import LinkedList
 
@@ -51,6 +53,18 @@ def test_insert_inserts_item_as_head_on_empty_linked_list():
     assert not linked_list.is_empty()
     assert isinstance(linked_list.head, Node)
     assert linked_list.head.value == item
+
+
+def test_insert_successfully_adds_item_on_tail_of_non_empty_linked_list():
+    """insert() adds item on the tail of the linked list."""
+
+    item = 2
+
+    linked_list = LinkedList()
+    linked_list.insert(1)
+    linked_list.insert(2)
+    
+    assert linked_list.get_tail().value == item
 
 
 def test_get_tail_returns_None_on_empty_list():
