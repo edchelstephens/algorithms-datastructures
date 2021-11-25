@@ -21,3 +21,11 @@ def test_insert_empty_list():
 
     assert isinstance(linked_list.head, Node)
     assert linked_list.head.value == item
+
+
+def test_is_empty_returns_True_on_empty_list():
+    """is_empty() method returns True on empty list."""
+
+    linked_list = LinkedList()
+
+    assert linked_list.is_empty()
