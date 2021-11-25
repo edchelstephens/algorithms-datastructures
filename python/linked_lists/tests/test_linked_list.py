@@ -38,3 +38,16 @@ def test_is_empty_returns_False_on_non_empty_list():
     linked_list.insert(1)
 
     assert not linked_list.is_empty()
+
+
+def test_insert_inserts_item_as_head_on_empty_linked_list():
+    """insert() inserts item as head on empty linked list."""
+
+    item = 1
+
+    linked_list = LinkedList()
+    linked_list.insert(item)
+
+    assert not linked_list.is_empty()
+    assert isinstance(linked_list.head, Node)
+    assert linked_list.head.value == item
