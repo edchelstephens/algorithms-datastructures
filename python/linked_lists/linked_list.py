@@ -30,3 +30,14 @@ class LinkedList:
             return self.head is None
         except Exception as exc:  # pragma no cover
             raise exc
+
+    def get_tail(self):
+        """Return the last node in the linked list."""
+
+        tail = self.head
+
+        if tail is not None:
+            while tail.next is not None:
+                tail = tail.next
+
+        return tail

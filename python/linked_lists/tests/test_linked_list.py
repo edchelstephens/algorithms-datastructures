@@ -51,3 +51,11 @@ def test_insert_inserts_item_as_head_on_empty_linked_list():
     assert not linked_list.is_empty()
     assert isinstance(linked_list.head, Node)
     assert linked_list.head.value == item
+
+
+def test_get_tail_returns_None_on_empty_list():
+    """get_tail() returns None on empty list."""
+
+    linked_list = LinkedList()
+
+    assert linked_list.get_tail() is None
