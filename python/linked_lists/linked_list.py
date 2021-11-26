@@ -8,9 +8,12 @@ class LinkedList:
 
     def __init__(self, *items, **kwargs):
         """Construct linked list from given items."""
-        self.head = None
-        for item in items:
-            self.insert(item)
+        try:
+            self.head = None
+            for item in items:
+                self.insert(item)
+        except Exception as exc:  # pragma no cover
+            raise exc
 
     def __repr__(self) -> str:
         """String representation of linked list."""
@@ -39,11 +42,14 @@ class LinkedList:
 
     def get_tail(self) -> Node | None:
         """Return the last node in the linked list."""
+        try:
 
-        tail = self.head
+            tail = self.head
 
-        if tail is not None:
-            while tail.next is not None:
-                tail = tail.next
+            if tail is not None:
+                while tail.next is not None:
+                    tail = tail.next
 
-        return tail
+            return tail
+        except Exception as exc:  # pragma no cover
+            raise exc
