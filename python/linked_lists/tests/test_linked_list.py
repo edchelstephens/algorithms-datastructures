@@ -91,3 +91,7 @@ def test_get_tail_returns_None_on_empty_list():
     linked_list = LinkedList()
 
     assert linked_list.get_tail() is None
+
+
+def test_get_items_returns_a_list():
+    """get_items() returns a list."""

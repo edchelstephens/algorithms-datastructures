@@ -37,7 +37,7 @@ class LinkedList:
         except Exception as exc:  # pragma no cover
             raise exc
 
-    def get_tail(self):
+    def get_tail(self) -> Node | None:
         """Return the last node in the linked list."""
 
         tail = self.head
