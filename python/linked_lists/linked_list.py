@@ -53,3 +53,11 @@ class LinkedList:
             return tail
         except Exception as exc:  # pragma no cover
             raise exc
+
+    def get_items(self) -> list:
+        """Return a list of items for the node values on the linked list."""
+        try:
+            items = []
+            return items
+        except Exception as exc:  # pragma no cover
+            raise exc

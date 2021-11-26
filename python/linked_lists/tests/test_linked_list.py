@@ -95,3 +95,7 @@ def test_get_tail_returns_None_on_empty_list():
 
 def test_get_items_returns_a_list():
     """get_items() returns a list."""
+
+    linked_list = LinkedList()
+
+    assert isinstance(linked_list.get_items(), list)
