@@ -4,7 +4,7 @@ from python.linked_lists.node import Node
 from python.linked_lists.linked_list import LinkedList
 
 
-def test_repr():
+def test_repr() -> None:
     """Test repr method."""
     linked_list = LinkedList()
 
@@ -13,7 +13,7 @@ def test_repr():
     assert expected == repr(linked_list)
 
 
-def test_linked_list_creates_linked_nodes_of_items():
+def test_linked_list_creates_linked_nodes_of_items() -> None:
     """LinkedList creates a linked list of nodes of items."""
 
     items = [1, 2, 3]
@@ -31,7 +31,7 @@ def test_linked_list_creates_linked_nodes_of_items():
     assert items == list_items
 
 
-def test_insert_empty_list():
+def test_insert_empty_list() -> None:
     """Insert item should be added to list."""
     linked_list = LinkedList()
 
@@ -43,7 +43,7 @@ def test_insert_empty_list():
     assert linked_list.head.value == item
 
 
-def test_insert_inserts_item_as_head_on_empty_linked_list():
+def test_insert_inserts_item_as_head_on_empty_linked_list() -> None:
     """insert() inserts item as head on empty linked list."""
 
     item = 1
@@ -56,7 +56,7 @@ def test_insert_inserts_item_as_head_on_empty_linked_list():
     assert linked_list.head.value == item
 
 
-def test_insert_successfully_adds_item_on_tail_of_non_empty_linked_list():
+def test_insert_successfully_adds_item_on_tail_of_non_empty_linked_list() -> None:
     """insert() adds item on the tail of the linked list."""
 
     item = 2
@@ -68,7 +68,7 @@ def test_insert_successfully_adds_item_on_tail_of_non_empty_linked_list():
     assert linked_list.get_tail().value == item
 
 
-def test_is_empty_returns_True_on_empty_list():
+def test_is_empty_returns_True_on_empty_list() -> None:
     """is_empty() method returns True on empty list."""
 
     linked_list = LinkedList()
@@ -76,7 +76,7 @@ def test_is_empty_returns_True_on_empty_list():
     assert linked_list.is_empty()
 
 
-def test_is_empty_returns_False_on_non_empty_list():
+def test_is_empty_returns_False_on_non_empty_list() -> None:
     """is_empty() method returns False on non empty list."""
 
     linked_list = LinkedList()
@@ -85,7 +85,7 @@ def test_is_empty_returns_False_on_non_empty_list():
     assert not linked_list.is_empty()
 
 
-def test_get_tail_returns_None_on_empty_list():
+def test_get_tail_returns_None_on_empty_list() -> None:
     """get_tail() returns None on empty list."""
 
     linked_list = LinkedList()
@@ -93,7 +93,7 @@ def test_get_tail_returns_None_on_empty_list():
     assert linked_list.get_tail() is None
 
 
-def test_get_items_returns_a_list():
+def test_get_items_returns_a_list() -> None:
     """get_items() returns a list."""
 
     linked_list = LinkedList()
