@@ -99,3 +99,21 @@ def test_get_items_returns_a_list() -> None:
     linked_list = LinkedList()
 
     assert isinstance(linked_list.get_items(), list)
+
+
+def test_get_items_returns_empty_list_on_empty_linked_list() -> None:
+    """get_items() returns an empty list on empty linked_list"""
+
+    linked_list = LinkedList()
+
+    assert linked_list.get_items() == []
+
+
+def test_get_items_retrieves_the_node_items_on_the_list() -> None:
+    """get_items() returns the list of node items on the linked list."""
+
+    items = [1, 2, 3]
+
+    linked_list = LinkedList(*items)
+
+    assert linked_list.get_items() == items

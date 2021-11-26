@@ -58,6 +58,12 @@ class LinkedList:
         """Return a list of items for the node values on the linked list."""
         try:
             items = []
+            head = self.head
+
+            while head is not None:
+                items.append(head.value)
+                head = head.next
+
             return items
         except Exception as exc:  # pragma no cover
             raise exc
