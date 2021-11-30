@@ -39,8 +39,22 @@ class LinkedList:
 
     def remove(self, item: Any) -> None:
         """Remove node containing item on the list."""
-        if self.is_empty() or item not in self.get_items():
-            raise ValueError("item {} not in list".format(item))
+        if self.is_empty():
+            raise ValueError("Linked list is empty.")
+        elif item not in self:
+            raise ValueError("Item {} not in list".format(item))
+        else:
+            pass
+
+    def find(self, item: Any) -> Node:
+        """Find and return the first node containing the item on the list.
+
+        Raises ValueError if item is not found on the list.
+        """
+        if self.is_empty():
+            raise ValueError("Linked list is empty.")
+        elif item not in self:
+            raise ValueError("Item {} is not on the list.".format(item))
         else:
             pass
 

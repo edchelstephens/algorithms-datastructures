@@ -173,10 +173,43 @@ def test_in_list_returns_True_on_item_in_list() -> None:
         assert item in linked_list
 
 
-def test_remove_raises_exception_on_trying_to_remove_non_existent_item_on_list() -> None:
-    """remove() raises ValueError when trying to remove an item that is non existent in the list."""
+def test_remove_raises_exception_on_trying_to_remove_an_item_on_empty_list() -> None:
+    """remove() raises ValueError when trying to remove something on an empty list"""
 
     linked_list = LinkedList()
 
     with pytest.raises(ValueError):
         linked_list.remove(1)
+
+
+def test_remove_raises_exception_on_trying_to_remove_non_existent_item_on_list() -> None:
+    """remove() raises ValueError when trying to remove an item that is non existent in the list."""
+
+    items = [1, 2]
+    linked_list = LinkedList(*items)
+
+    with pytest.raises(ValueError):
+        linked_list.remove(3)
+
+
+@pytest.mark.skip
+def test_remove_removes_item_on_list() -> None:
+    """remove() removes item on list."""
+    item = 1
+    items = [item, 2, 3]
+
+    linked_list = LinkedList(*items)
+
+    linked_list.remove(item)
+
+    assert item not in linked_list
+
+
+def test_find_raises_value_error_on_trying_to_find_node_item_which_does_not_exist_on_list() -> None:
+    """find() raises ValueError if item node does not exist."""
+
+    items = [1, 2]
+
+    linked_list = LinkedList(*items)
+    with pytest.raises(ValueError):
+        linked_list.find(3)
