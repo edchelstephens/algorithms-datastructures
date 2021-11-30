@@ -4,7 +4,7 @@ from python.linked_lists.node import Node
 
 
 class LinkedList:
-    """Linked list class."""
+    """Singly linked list."""
 
     def __init__(self, *items, **kwargs):
         """Construct linked list from given items."""
@@ -67,3 +67,16 @@ class LinkedList:
             return items
         except Exception as exc:  # pragma no cover
             raise exc
+
+
+class DoublyLinkedList:
+    """Doubly linked list."""
+
+    def __init__(self, *items) -> None:
+        """Initialize doubly linked list with values."""
+        for item in items:
+            self.insert(item)
+
+    def insert(self, item: Any) -> None:
+        """Insert item on doubly linked list."""
+        pass
