@@ -1,4 +1,4 @@
-from pprint import pprint
+import pytest
 
 from python.linked_lists.node import Node
 from python.linked_lists.linked_list import LinkedList
@@ -171,3 +171,12 @@ def test_in_list_returns_True_on_item_in_list() -> None:
 
     for item in items:
         assert item in linked_list
+
+
+def test_remove_raises_exception_on_trying_to_remove_non_existent_item_on_list() -> None:
+    """remove() raises ValueError when trying to remove an item that is non existent in the list."""
+
+    linked_list = LinkedList()
+
+    with pytest.raises(ValueError):
+        linked_list.remove(1)

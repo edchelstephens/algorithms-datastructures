@@ -37,6 +37,13 @@ class LinkedList:
         except Exception as exc:  # pragma no cover
             raise exc
 
+    def remove(self, item: Any) -> None:
+        """Remove node containing item on the list."""
+        if self.is_empty() or item not in self.get_items():
+            raise ValueError("item {} not in list".format(item))
+        else:
+            pass
+
     def is_empty(self) -> bool:
         """Check if list is empty."""
         try:
