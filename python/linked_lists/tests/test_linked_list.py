@@ -125,3 +125,12 @@ def test_count_returns_0_on_empty_list() -> None:
     linked_list = LinkedList()
 
     assert linked_list.get_count() == 0
+
+
+def test_count_returns_actual_count_of_items_on_linked_list() -> None:
+    """get_count() returns 0 on empty list."""
+
+    items = [1, 2, 3]
+    linked_list = LinkedList(*items)
+
+    assert linked_list.get_count() == len(items)
