@@ -222,3 +222,27 @@ def test_find_raises_value_error_on_trying_to_find_node_item_which_does_not_exis
     linked_list = LinkedList(*items)
     with pytest.raises(ValueError):
         linked_list.find(3)
+
+
+def test_find_returns_a_Node_on_a_found_item_on_the_list() -> None:
+    """find() returns a Node object if item found on list."""
+
+    items = [1, 2, 3]
+
+    linked_list = LinkedList(*items)
+
+    node = linked_list.find(1)
+
+    assert isinstance(node, Node)
+
+
+def test_find_returns_the_Node_containing_the_node_item_on_the_list() -> None:
+    """find() returns a Node object containing the item on the list."""
+
+    items = [1, 2, 3]
+
+    linked_list = LinkedList(*items)
+
+    node = linked_list.find(1)
+
+    assert node.value == 1

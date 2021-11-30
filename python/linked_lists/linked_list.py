@@ -53,10 +53,16 @@ class LinkedList:
         """
         if self.is_empty():
             raise ValueError("Linked list is empty.")
-        elif item not in self:
-            raise ValueError("Item {} is not on the list.".format(item))
         else:
-            pass
+
+            node = self.head
+
+            while node.value != item:
+                node = node.next
+                if node is None:
+                    raise ValueError("Item {} is not on the list.".format(item))
+
+            return node
 
     def is_empty(self) -> bool:
         """Check if list is empty."""
