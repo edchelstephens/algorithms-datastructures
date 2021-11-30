@@ -119,7 +119,7 @@ def test_get_items_retrieves_the_node_items_on_the_list() -> None:
     assert linked_list.get_items() == items
 
 
-def test_count_returns_0_on_empty_list() -> None:
+def test_get_count_returns_0_on_empty_list() -> None:
     """get_count() returns 0 on empty list."""
 
     linked_list = LinkedList()
@@ -127,7 +127,7 @@ def test_count_returns_0_on_empty_list() -> None:
     assert linked_list.get_count() == 0
 
 
-def test_count_returns_actual_count_of_initiliazed_items_on_linked_list() -> None:
+def test_get_count_returns_actual_count_of_initiliazed_items_on_linked_list() -> None:
     """get_count() returns returns the actual length of initialized items on the list."""
 
     items = [1, 2, 3]
@@ -136,8 +136,8 @@ def test_count_returns_actual_count_of_initiliazed_items_on_linked_list() -> Non
     assert linked_list.get_count() == len(items)
 
 
-def test_count_returns_actual_count_of_items_on_linked_list() -> None:
-    """get_count() returns gets the actual count on the list."""
+def test_get_count_returns_actual_count_of_items_on_linked_list() -> None:
+    """get_count() returns gets the actual count of items in the list."""
 
     items = [1, 2, 3]
     initial_count = len(items)
