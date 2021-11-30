@@ -22,6 +22,6 @@ class DoublyNode:
 
     def __repr__(self) -> str:
         """Doubly node representation."""
-        return """Node(prev -> {}, value={}, next -> {}""".format(
+        return """Node({} <- prev, value={}, next -> {})""".format(
             self.previous, self.value, self.next
         )
