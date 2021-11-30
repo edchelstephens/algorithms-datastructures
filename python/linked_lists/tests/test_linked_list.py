@@ -205,6 +205,15 @@ def test_remove_removes_item_on_list() -> None:
     assert item not in linked_list
 
 
+def test_find_raises_value_error_on_finding_something_on_an_empty_list() -> None:
+    """find() raises ValueError on trying to find something on an empty list."""
+
+    linked_list = LinkedList()
+
+    with pytest.raises(ValueError):
+        linked_list.find(1)
+
+
 def test_find_raises_value_error_on_trying_to_find_node_item_which_does_not_exist_on_list() -> None:
     """find() raises ValueError if item node does not exist."""
 
