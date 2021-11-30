@@ -117,3 +117,11 @@ def test_get_items_retrieves_the_node_items_on_the_list() -> None:
     linked_list = LinkedList(*items)
 
     assert linked_list.get_items() == items
+
+
+def test_count_returns_0_on_empty_list() -> None:
+    """get_count() returns 0 on empty list."""
+
+    linked_list = LinkedList()
+
+    assert linked_list.get_count() == 0

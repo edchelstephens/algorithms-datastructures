@@ -68,6 +68,20 @@ class LinkedList:
         except Exception as exc:  # pragma no cover
             raise exc
 
+    def get_count(self) -> int:
+        """Get the count of total items on the linked list."""
+        try:
+            count = 0
+            head = self.head
+
+            while head is not None:
+                count += 1
+                head = head.next
+
+            return count
+        except Exception as exc:  # pragma no cover
+            raise exc
+
 
 class DoublyLinkedList:
     """Doubly linked list."""
