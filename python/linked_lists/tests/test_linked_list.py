@@ -150,3 +150,24 @@ def test_get_count_returns_actual_count_of_items_on_linked_list() -> None:
     insertions = 2
 
     assert linked_list.get_count() == initial_count + insertions
+
+
+def test_in_list_returns_False_on_item_not_on_list() -> None:
+    """item not in list should return false on in check."""
+
+    items = [1, 2, 3]
+
+    linked_list = LinkedList(*items)
+
+    assert 4 not in linked_list
+
+
+def test_in_list_returns_True_on_item_in_list() -> None:
+    """item not in list should return false on in check."""
+
+    items = [1, 2, 3]
+
+    linked_list = LinkedList(*items)
+
+    for item in items:
+        assert item in linked_list

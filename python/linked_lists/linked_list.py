@@ -19,6 +19,10 @@ class LinkedList:
         """String representation of linked list."""
         return "LinkedList({})".format(self.head)
 
+    def __contains__(self, item: Any) -> bool:
+        """Check if item is on the list."""
+        return item in self.get_items()
+
     def insert(self, item: Any) -> None:
         """Insert item to linked list."""
         try:
