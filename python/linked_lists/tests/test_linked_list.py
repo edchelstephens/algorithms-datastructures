@@ -290,6 +290,16 @@ def test_get_previous_pointer_singular_item_on_list() -> None:
     assert pointer.value == 1
 
 
+def test_get_previous_pointer_singular_item_not_on_list() -> None:
+    """get_previous_pointer() raises ValueError on single item list which is not the lookup item."""
+
+    items = [1]
+    linked_list = LinkedList(*items)
+
+    with pytest.raises(ValueError):
+        linked_list.get_previous_pointer(2)
+
+
 def test_is_singular_empty_list() -> None:
     """is_singular() returns False on empty list."""
 
