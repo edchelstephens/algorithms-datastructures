@@ -192,17 +192,15 @@ def test_remove_raises_exception_on_trying_to_remove_non_existent_item_on_list()
         linked_list.remove(3)
 
 
-def test_remove_removes_item_on_list() -> None:
-    """remove() removes item on list."""
+def test_remove_removes_singular_item_on_list() -> None:
+    """remove() removes single item on list."""
 
-    items = [1, 2, 3]
-
-    linked_list = LinkedList(*items)
+    linked_list = LinkedList(1)
 
     linked_list.remove(1)
 
     assert 1 not in linked_list
-    assert linked_list.get_items() == [2, 3]
+    assert linked_list.get_items() == []
 
 
 def test_find_raises_value_error_on_finding_something_on_an_empty_list() -> None:
