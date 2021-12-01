@@ -62,12 +62,24 @@ class LinkedList:
 
             return node
 
+    def get_previous_pointer(self, item: Any) -> Node:
+        """Get previous pointer of the first node containing item on the list.
+
+        Raises ValueError if item is not found on the list.
+        """
+        if self.is_empty():
+            raise ValueError("Linked list is empty.")
+
     def is_empty(self) -> bool:
         """Check if list is empty."""
         try:
             return self.head is None
         except Exception as exc:  # pragma no cover
             raise exc
+
+    def is_singular(self) -> bool:
+        """Check if list contains single item."""
+        return not self.is_empty() and self.head.next is None
 
     def get_tail(self) -> Node | None:
         """Return the last node in the linked list."""
