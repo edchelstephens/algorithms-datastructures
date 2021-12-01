@@ -41,8 +41,15 @@ class LinkedList:
         """Remove node containing item on the list."""
         if self.is_empty():
             raise ValueError("Linked list is empty.")
+        elif self.is_singular():
+            if self.head.value != item:
+                raise ValueError("Item {} not on list".format(item))
+            else:
+                self.head = None
         else:
-            node = self.find(item)  # need the pointer to the previous node
+            previous_pointer = self.get_previous_pointer(item)
+
+            raise NotImplementedError
 
     def find(self, item: Any) -> Node:
         """Find and return the first node containing the item on the list.

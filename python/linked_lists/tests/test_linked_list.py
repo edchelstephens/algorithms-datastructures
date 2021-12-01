@@ -192,17 +192,17 @@ def test_remove_raises_exception_on_trying_to_remove_non_existent_item_on_list()
         linked_list.remove(3)
 
 
-@pytest.mark.skip
 def test_remove_removes_item_on_list() -> None:
     """remove() removes item on list."""
-    item = 1
-    items = [item, 2, 3]
+
+    items = [1, 2, 3]
 
     linked_list = LinkedList(*items)
 
-    linked_list.remove(item)
+    linked_list.remove(1)
 
-    assert item not in linked_list
+    assert 1 not in linked_list
+    assert linked_list.get_items() == [2, 3]
 
 
 def test_find_raises_value_error_on_finding_something_on_an_empty_list() -> None:
