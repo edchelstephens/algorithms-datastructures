@@ -246,3 +246,45 @@ def test_find_returns_the_Node_containing_the_node_item_on_the_list() -> None:
     node = linked_list.find(1)
 
     assert node.value == 1
+
+
+def test_get_previous_pointer_empty_list() -> None:
+    """get_previous_pointer() raises ValueError on empty list."""
+    linked_list = LinkedList()
+
+    with pytest.raises(ValueError):
+        linked_list.get_previous_pointer(1)
+
+
+@pytest.mark.skip
+def test_get_previous_pointer_item_not_on_list() -> None:
+    """get_previous_pointer() raises ValueError on trying to find previous pointer of item not on list."""
+    items = [1, 2]
+    linked_list = LinkedList(*items)
+
+    with pytest.raises(ValueError):
+        linked_list.get_previous_pointer(3)
+
+
+def test_is_singular_empty_list() -> None:
+    """is_singular() returns False on empty list."""
+
+    linked_list = LinkedList()
+
+    assert not linked_list.is_singular()
+
+
+def test_is_singular_singular_item_on_list() -> None:
+    """is_singular() returns True on singular list."""
+
+    linked_list = LinkedList(1)
+
+    assert linked_list.is_singular()
+
+
+def test_is_singular_multiple_item_list() -> None:
+    """is_singular() returns False on multiple item list."""
+
+    linked_list = LinkedList(1, 2, 3)
+
+    assert not linked_list.is_singular()
