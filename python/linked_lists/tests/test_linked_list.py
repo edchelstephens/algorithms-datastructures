@@ -277,6 +277,19 @@ def test_get_previous_pointer_item_on_list() -> None:
     assert pointer.next.value == 2
 
 
+def test_get_previous_pointer_singular_item_on_list() -> None:
+    """get_previous_pointer() returns the node pointing the single node containing the item."""
+
+    items = [1]
+    linked_list = LinkedList(*items)
+
+    pointer = linked_list.get_previous_pointer(1)
+
+    assert isinstance(pointer, Node)
+    assert pointer.next is None
+    assert pointer.value == 1
+
+
 def test_is_singular_empty_list() -> None:
     """is_singular() returns False on empty list."""
 
