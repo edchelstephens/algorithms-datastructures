@@ -52,13 +52,14 @@ class LinkedList:
         if self.is_empty():
             raise ValueError("Linked list is empty.")
         else:
-
             node = self.head
 
-            while node.value != item:
+            while node is not None:
+                if node.value == item:
+                    break
                 node = node.next
-                if node is None:
-                    raise ValueError("Item {} is not on the list.".format(item))
+            else:
+                raise ValueError("Item {} is not on list".format(item))
 
             return node
 
@@ -69,6 +70,22 @@ class LinkedList:
         """
         if self.is_empty():
             raise ValueError("Linked list is empty.")
+        elif self.is_singular():
+            if self.head.value != item:
+                raise ValueError("Item {} is not on list".format(item))
+            return self.head
+        else:
+
+            node = self.head
+
+            while node.next is not None:
+                if node.next.value == item:
+                    break
+                node = node.next
+            else:
+                raise ValueError("Item {} is not on list".format(item))
+
+            return node
 
     def is_empty(self) -> bool:
         """Check if list is empty."""

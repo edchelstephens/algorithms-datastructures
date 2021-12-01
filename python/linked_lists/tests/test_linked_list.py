@@ -256,7 +256,6 @@ def test_get_previous_pointer_empty_list() -> None:
         linked_list.get_previous_pointer(1)
 
 
-@pytest.mark.skip
 def test_get_previous_pointer_item_not_on_list() -> None:
     """get_previous_pointer() raises ValueError on trying to find previous pointer of item not on list."""
     items = [1, 2]
@@ -264,6 +263,18 @@ def test_get_previous_pointer_item_not_on_list() -> None:
 
     with pytest.raises(ValueError):
         linked_list.get_previous_pointer(3)
+
+
+def test_get_previous_pointer_item_on_list() -> None:
+    """get_previous_pointer() returns the node pointing the next node containing the item."""
+
+    items = [1, 2]
+    linked_list = LinkedList(*items)
+
+    pointer = linked_list.get_previous_pointer(2)
+
+    assert isinstance(pointer, Node)
+    assert pointer.next.value == 2
 
 
 def test_is_singular_empty_list() -> None:
