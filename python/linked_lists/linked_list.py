@@ -47,9 +47,12 @@ class LinkedList:
             else:
                 self.head = None
         else:
-            previous_pointer = self.get_previous_pointer(item)
+            pointer = self.get_previous_pointer(item)
+            next_replacement = pointer.next.next
 
-            raise NotImplementedError
+            del pointer.next
+
+            pointer.next = next_replacement
 
     def find(self, item: Any) -> Node:
         """Find and return the first node containing the item on the list.
