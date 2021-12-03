@@ -1,4 +1,5 @@
 import pytest
+from pprint import pprint
 
 from python.linked_lists.node import Node
 from python.linked_lists.linked_list import LinkedList
@@ -201,6 +202,17 @@ def test_remove_removes_singular_item_on_list() -> None:
 
     assert 1 not in linked_list
     assert linked_list.get_items() == []
+
+
+def test_remove_removes_item_on_a_multi_list() -> None:
+    """remove() removes item on the list."""
+
+    linked_list = LinkedList(1, 2, 3, 4)
+
+    linked_list.remove(4)
+
+    assert 4 not in linked_list
+    assert linked_list.get_items() == [1, 2, 3]
 
 
 def test_find_raises_value_error_on_finding_something_on_an_empty_list() -> None:
