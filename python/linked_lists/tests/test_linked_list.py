@@ -344,9 +344,19 @@ def test_remove_raises_ValueError_on_trying_to_remove_something_on_empty_list() 
 
 
 def test_remove_all_removes_item_on_single_list() -> None:
-    """remove_all(item) raises removes item on single list"""
+    """remove_all(item) removes item on single list"""
 
     linked_list = LinkedList(1)
     linked_list.remove_all(1)
 
     assert 1 not in linked_list
+
+def test_remove_all_removes_all_item_occurrences_on_the_list() -> None:
+    """remove_all(item) removes all item occurrences on list"""
+
+    items = [1,1,1,2,3]
+    linked_list = LinkedList(*items)
+    linked_list.remove_all(1)
+
+    assert 1 not in linked_list
+    assert linked_list.get_items() == [2,3]

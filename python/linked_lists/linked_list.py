@@ -1,4 +1,5 @@
 from typing import Any
+from pprint import pprint
 
 from python.linked_lists.node import Node
 
@@ -46,6 +47,10 @@ class LinkedList:
                 raise ValueError("Item {} not on list".format(item))
             else:
                 self.head = None
+        elif self.head.value == item:
+            next_head = self.head.next
+            del self.head
+            self.head = next_head
         else:
             pointer = self.get_previous_pointer(item)
             next_replacement = pointer.next.next
@@ -65,6 +70,12 @@ class LinkedList:
                 raise ValueError("Item {} is not on list".format(item))
             else:
                 self.head = None
+        else:
+            while item in self:
+                try:
+                    self.remove(item)
+                except ValueError as exc:
+                    break
 
     def find(self, item: Any) -> Node:
         """Find and return the first node containing the item on the list.
