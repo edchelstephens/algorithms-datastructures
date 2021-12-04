@@ -14,6 +14,26 @@ def test_repr() -> None:
     assert expected == repr(linked_list)
 
 
+def test_str_empty_list() -> None:
+    """empty list str should resemble an empty array."""
+
+    linked_list = LinkedList()
+
+    expected = "[]"
+
+    assert expected == str(linked_list)
+
+
+def test_str_single_list() -> None:
+    """single list str should resemble list with single item"""
+
+    linked_list = LinkedList(1)
+
+    expected = "[1]"
+
+    assert expected == str(linked_list)
+
+
 def test_linked_list_creates_linked_nodes_of_items() -> None:
     """LinkedList creates a linked list of nodes of items."""
 
@@ -351,12 +371,13 @@ def test_remove_all_removes_item_on_single_list() -> None:
 
     assert 1 not in linked_list
 
+
 def test_remove_all_removes_all_item_occurrences_on_the_list() -> None:
     """remove_all(item) removes all item occurrences on list"""
 
-    items = [1,1,1,2,3]
+    items = [1, 1, 1, 2, 3]
     linked_list = LinkedList(*items)
     linked_list.remove_all(1)
 
     assert 1 not in linked_list
-    assert linked_list.get_items() == [2,3]
+    assert linked_list.get_items() == [2, 3]

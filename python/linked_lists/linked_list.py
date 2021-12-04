@@ -4,6 +4,19 @@ from pprint import pprint
 from python.linked_lists.node import Node
 
 
+# class Node:
+#     """A node element containing a value and a reference to the next node."""
+
+#     def __init__(self, value) -> None:
+#         """Initialize node with given value."""
+#         self.value = value
+#         self.next = None
+
+#     def __repr__(self):
+#         """Node representation."""
+#         return "Node(value={}, next -> {})".format(self.value, repr(self.next))
+
+
 class LinkedList:
     """Singly linked list."""
 
@@ -15,6 +28,18 @@ class LinkedList:
                 self.insert(item)
         except Exception as exc:  # pragma no cover
             raise exc
+
+    def __str__(self) -> str:
+        """Human readable string representation of linked list."""
+        string = "["
+
+        node = self.head
+        while node is not None:
+            string += str(node.value)
+            node = node.next
+        string += "]"
+
+        return string
 
     def __repr__(self) -> str:
         """String representation of linked list."""
