@@ -54,6 +54,12 @@ class LinkedList:
 
             pointer.next = next_replacement
 
+    def remove_all(self, item: Any) -> None:
+        """Remove all occurrences of item on list."""
+
+        if self.is_empty():
+            raise ValueError("List is empty")
+
     def find(self, item: Any) -> Node:
         """Find and return the first node containing the item on the list.
 

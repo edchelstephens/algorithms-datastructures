@@ -332,3 +332,12 @@ def test_is_singular_multiple_item_list() -> None:
     linked_list = LinkedList(1, 2, 3)
 
     assert not linked_list.is_singular()
+
+
+def test_remove_raises_ValueError_on_trying_to_remove_something_on_empty_list() -> None:
+    """remove_all(item) raises ValueError on empty list."""
+
+    linked_list = LinkedList()
+
+    with pytest.raises(ValueError):
+        linked_list.remove_all(1)
