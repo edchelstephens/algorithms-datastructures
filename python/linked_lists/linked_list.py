@@ -60,6 +60,12 @@ class LinkedList:
         if self.is_empty():
             raise ValueError("List is empty")
 
+        elif self.is_singular():
+            if self.head.value != item:
+                raise ValueError("Item {} is not on list".format(item))
+            else:
+                self.head = None
+
     def find(self, item: Any) -> Node:
         """Find and return the first node containing the item on the list.
 

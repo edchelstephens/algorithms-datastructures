@@ -341,3 +341,12 @@ def test_remove_raises_ValueError_on_trying_to_remove_something_on_empty_list() 
 
     with pytest.raises(ValueError):
         linked_list.remove_all(1)
+
+
+def test_remove_all_removes_item_on_single_list() -> None:
+    """remove_all(item) raises removes item on single list"""
+
+    linked_list = LinkedList(1)
+    linked_list.remove_all(1)
+
+    assert 1 not in linked_list
