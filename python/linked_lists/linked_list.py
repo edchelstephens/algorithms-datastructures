@@ -36,6 +36,8 @@ class LinkedList:
         node = self.head
         while node is not None:
             string += str(node.value)
+            if node.next is not None:
+                string += " -> "
             node = node.next
         string += "]"
 
