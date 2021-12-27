@@ -24,6 +24,15 @@ class DoublyNode:
         self.previous = None
         self.next = None
 
+    def __repr__(self) -> str:
+        """string representation."""
+        return "DoublyLinkedList(id={}, value={}, previous={}, next={})".format(
+            id(self),
+            self.value,
+            id(self.previous) if self.previous is not None else None,
+            id(self.next) if self.next is not None else None,
+        )
+
 
 class LinkedList:
     """Singly linked list."""
@@ -309,7 +318,16 @@ class DoublyLinkedList:
         self.head = None
 
     def find(self, item: Any) -> DoublyNode:
-        raise NotImplementedError
+        pointer = self.head
+
+        while pointer is not None:
+            if pointer.value == item:
+                break
+            pointer = pointer.next
+        else:
+            raise ValueError("item {} is not on list".format(item))
+
+        return pointer
 
     def get_previous_pointer(self, item: Any) -> DoublyNode:
         raise NotImplementedError
