@@ -365,6 +365,7 @@ class DoublyLinkedList:
                     next_pointer.previous = previous_pointer
 
     def remove_all(self, item: Any):
+        """Remove all nodes containing item on the linked list."""
         while item in self:
             self.remove(item)
 
