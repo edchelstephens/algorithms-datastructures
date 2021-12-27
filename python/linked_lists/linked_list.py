@@ -342,7 +342,27 @@ class DoublyLinkedList:
         return not self.is_empty() and self.head.next is None
 
     def remove(self, item: Any) -> None:
-        raise NotImplementedError
+        """Remove item on the list"""
+
+        if self.is_empty():
+            raise ValueError("List is empty")
+        elif self.is_singular():
+            if item == self.head.value:
+                self.head = None
+            else:
+                raise ValueError("item {} is not on list".format(item))
+        else:
+            node = self.find(item)
+            if node is self.head:
+                self.head = node.next
+                self.head.previous = node.previous
+            else:
+                previous_pointer = self.get_previous_pointer(item)
+                next_pointer = node.next
+
+                previous_pointer.next = next_pointer
+                if next_pointer is not None:
+                    next_pointer.previous = previous_pointer
 
     def remove_all(self, item: Any):
         raise NotImplementedError
