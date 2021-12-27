@@ -1,7 +1,28 @@
 from typing import Any
 from pprint import pprint
 
-from python.linked_lists.node import Node
+
+class Node:
+    """A node element containing a value and a reference to the next node."""
+
+    def __init__(self, value) -> None:
+        """Initialize node with given value."""
+        self.value = value
+        self.next = None
+
+    def __repr__(self):
+        """Node representation."""
+        return "Node(value={}, next -> {})".format(self.value, repr(self.next))
+
+
+class DoublyNode:
+    """A node element containing a value and references to next and previous nodes."""
+
+    def __init__(self, value) -> None:
+        """Initialize node with given value and provide reference to previous and next."""
+        self.value = value
+        self.previous = None
+        self.next = None
 
 
 class LinkedList:
@@ -193,9 +214,82 @@ class DoublyLinkedList:
 
     def __init__(self, *items) -> None:
         """Initialize doubly linked list with values."""
+        self.head = None
         for item in items:
             self.insert(item)
 
+    def __str__(self) -> str:
+        """Human readable string representation."""
+        items = self.get_items()
+        return str(items)
+
+    def __repr__(self) -> str:
+        pointer = self.head
+
+        representation = "DoublyLinkedList("
+
+        pointer = self.head
+
+        while pointer is not None:
+            representation += "Node(id={}, previous={}, value={}, next={})".format(
+                id(pointer), id(pointer.previous), pointer.value, id(pointer.next)
+            )
+
+            if pointer.next is not None:
+                representation += " -> "
+
+            pointer = pointer.next
+
+        representation += ")"
+
+        return representation
+
+    def __contains__(self, item: Any) -> bool:
+        """Check if item is on the list."""
+        return item in self.get_items()
+
     def insert(self, item: Any) -> None:
         """Insert item on doubly linked list."""
-        pass
+
+        node = DoublyNode(item)
+
+        if self.head is None:
+            self.head = node
+        else:
+            tail = self.get_tail()
+            tail.next = node
+            node.previous = tail
+            self.head.previous = node
+
+    def get_tail(self) -> Node | None:
+        """Return the last node in the linked list."""
+        try:
+
+            tail = self.head
+
+            if tail is not None:
+                while tail.next is not None:
+                    tail = tail.next
+
+            return tail
+        except Exception as exc:  # pragma no cover
+            raise exc
+
+    def get_items(self) -> list:
+        """Get value items on doubly linked list."""
+
+        items = []
+        pointer = self.head
+
+        while pointer is not None:
+            items.append(pointer.value)
+            pointer = pointer.next
+
+        return items
+
+    def is_empty(self) -> bool:
+        """Check if list is empty."""
+        return self.head is None
+
+
+d = DoublyLinkedList(1, 2, 3)
