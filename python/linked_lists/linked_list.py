@@ -365,7 +365,8 @@ class DoublyLinkedList:
                     next_pointer.previous = previous_pointer
 
     def remove_all(self, item: Any):
-        raise NotImplementedError
+        while item in self:
+            self.remove(item)
 
 
-d = DoublyLinkedList(1, 2, 3)
+d = DoublyLinkedList(1, 2, 3, 1, 2, 3)
