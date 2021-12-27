@@ -184,11 +184,11 @@ class LinkedList:
         """Return a list of items for the node values on the linked list."""
         try:
             items = []
-            head = self.head
+            pointer = self.head
 
-            while head is not None:
-                items.append(head.value)
-                head = head.next
+            while pointer is not None:
+                items.append(pointer.value)
+                pointer = pointer.next
 
             return items
         except Exception as exc:  # pragma no cover
@@ -198,15 +198,19 @@ class LinkedList:
         """Get the count of total items on the linked list."""
         try:
             count = 0
-            head = self.head
+            pointer = self.head
 
-            while head is not None:
+            while pointer is not None:
                 count += 1
-                head = head.next
+                pointer = pointer.next
 
             return count
         except Exception as exc:  # pragma no cover
             raise exc
+
+    def empty(self) -> None:
+        """Empty the list."""
+        self.head = None
 
 
 class DoublyLinkedList:
@@ -290,6 +294,34 @@ class DoublyLinkedList:
     def is_empty(self) -> bool:
         """Check if list is empty."""
         return self.head is None
+
+    def get_count(self) -> int:
+        count = 0
+        pointer = self.head
+
+        while pointer is not None:
+            count += 1
+
+        return count
+
+    def empty(self):
+        """Empty the list."""
+        self.head = None
+
+    def find(self, item: Any) -> DoublyNode:
+        raise NotImplementedError
+
+    def get_previous_pointer(self, item: Any) -> DoublyNode:
+        raise NotImplementedError
+
+    def is_singular(self) -> bool:
+        return not self.is_empty() and self.head.next is None
+
+    def remove(self, item: Any) -> None:
+        raise NotImplementedError
+
+    def remove_all(self, item: Any):
+        raise NotImplementedError
 
 
 d = DoublyLinkedList(1, 2, 3)
