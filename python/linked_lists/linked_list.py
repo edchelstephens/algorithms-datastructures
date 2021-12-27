@@ -318,6 +318,7 @@ class DoublyLinkedList:
         self.head = None
 
     def find(self, item: Any) -> DoublyNode:
+        """Find the first node containing the item."""
         pointer = self.head
 
         while pointer is not None:
@@ -330,7 +331,12 @@ class DoublyLinkedList:
         return pointer
 
     def get_previous_pointer(self, item: Any) -> DoublyNode:
-        raise NotImplementedError
+        """Find the node before the node containing the item."""
+        node = self.find(item)
+
+        pointer = node.previous
+
+        return pointer
 
     def is_singular(self) -> bool:
         return not self.is_empty() and self.head.next is None
