@@ -339,6 +339,7 @@ class DoublyLinkedList:
         return pointer
 
     def is_singular(self) -> bool:
+        """Check if list is singular."""
         return not self.is_empty() and self.head.next is None
 
     def remove(self, item: Any) -> None:
