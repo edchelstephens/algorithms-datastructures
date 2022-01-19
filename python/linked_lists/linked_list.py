@@ -254,6 +254,7 @@ class DoublyLinkedList:
     def __init__(self, *items) -> None:
         """Initialize doubly linked list with values."""
         self.head = None
+        self._count = 0
         for item in items:
             self.insert(item)
 
@@ -302,6 +303,8 @@ class DoublyLinkedList:
             tail.next = node
             node.previous = tail
 
+        self._count += 1
+
     def add_head(self, item: Any) -> None:
         """Insert item on the head of the list."""
         try:
@@ -309,6 +312,9 @@ class DoublyLinkedList:
 
             node.next = self.head
             self.head = node
+
+            self._count += 1
+
         except Exception as exc:
             raise exc
 
@@ -324,6 +330,8 @@ class DoublyLinkedList:
         else:
             node.previous = tail
             tail.next = node
+
+        self._count += 1
 
     def get_tail(self) -> Node | None:
         """Return the last node in the linked list."""
@@ -356,13 +364,7 @@ class DoublyLinkedList:
         return self.head is None
 
     def get_count(self) -> int:
-        count = 0
-        pointer = self.head
-
-        while pointer is not None:
-            count += 1
-
-        return count
+        return self._count
 
     def empty(self):
         """Empty the list."""
@@ -415,6 +417,8 @@ class DoublyLinkedList:
                 previous_pointer.next = next_pointer
                 if next_pointer is not None:
                     next_pointer.previous = previous_pointer
+
+        self._count -= 1
 
     def remove_all(self, item: Any):
         """Remove all nodes containing item on the linked list."""
