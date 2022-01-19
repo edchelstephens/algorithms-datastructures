@@ -67,7 +67,7 @@ class LinkedList:
 
     def __contains__(self, item: Any) -> bool:
         """Check if item is on the list."""
-        return item in self.get_items()
+        return self.find(item) is not None
 
     def insert(self, item: Any) -> None:
         """Insert item to linked list."""
@@ -159,21 +159,24 @@ class LinkedList:
     def find(self, item: Any) -> Node:
         """Find and return the first node containing the item on the list.
 
-        Raises ValueError if item is not found on the list.
+        Return null if not found.
         """
-        if self.is_empty():
-            raise ValueError("Linked list is empty.")
-        else:
+        try:
+            found_node = None
+
             node = self.head
 
             while node is not None:
                 if node.value == item:
+                    found_node = node
                     break
                 node = node.next
-            else:
-                raise ValueError("Item {} is not on list".format(item))
 
-            return node
+            return found_node
+
+        except Exception:
+            return None
+
 
     def get_previous_pointer(self, item: Any) -> Node:
         """Get previous pointer of the first node containing item on the list.
