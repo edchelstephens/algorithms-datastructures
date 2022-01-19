@@ -177,7 +177,6 @@ class LinkedList:
         except Exception:
             return None
 
-
     def get_previous_pointer(self, item: Any) -> Node:
         """Get previous pointer of the first node containing item on the list.
 
@@ -291,7 +290,7 @@ class DoublyLinkedList:
 
     def __contains__(self, item: Any) -> bool:
         """Check if item is on the list."""
-        return item in self.get_items()
+        return self.find(item) is not None
 
     def insert(self, item: Any) -> None:
         """Insert item on doubly linked list."""
@@ -374,22 +373,28 @@ class DoublyLinkedList:
 
     def find(self, item: Any) -> DoublyNode:
         """Find the first node containing the item."""
-        pointer = self.head
+        try:
+            found_node = None
+            node = self.head
 
-        while pointer is not None:
-            if pointer.value == item:
-                break
-            pointer = pointer.next
-        else:
-            raise ValueError("item {} is not on list".format(item))
+            while node is not None:
+                if node.value == item:
+                    found_node = node
+                    break
+                node = node.next
 
-        return pointer
+            return found_node
+        except Exception as exc:
+            return None
 
     def get_previous_pointer(self, item: Any) -> DoublyNode:
         """Find the node before the node containing the item."""
         node = self.find(item)
 
-        pointer = node.previous
+        if node is not None:
+            pointer = node.previous
+        else:
+            raise ValueError("{} is not on the list".format(item))
 
         return pointer
 
