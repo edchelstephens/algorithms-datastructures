@@ -63,7 +63,11 @@ class LinkedList:
 
     def __repr__(self) -> str:
         """String representation of linked list."""
-        return "LinkedList({})".format(self.head)
+        return (
+            "LinkedList({})".format(self.head)
+            if self.head is not None
+            else "LinkedList()"
+        )
 
     def __contains__(self, item: Any) -> bool:
         """Check if item is on the list."""
@@ -115,28 +119,38 @@ class LinkedList:
         except Exception as exc:
             raise exc
 
-    def remove(self, item: Any) -> None:
-        """Remove node containing item on the list."""
+    def remove(self, item: Any) -> bool:
+        """Remove node containing item on the list.
+
+        Returns True if removed, False if not.
+        """
         if self.is_empty():
-            raise ValueError("Linked list is empty.")
+            is_removed = False
         elif self.is_singular():
             if self.head.value != item:
-                raise ValueError("Item {} not on list".format(item))
+                is_removed = False
             else:
+                del self.head
                 self.head = None
+                is_removed = True
         elif self.head.value == item:
             next_head = self.head.next
             del self.head
             self.head = next_head
+            is_removed = True
         else:
             pointer = self.get_previous_pointer(item)
-            next_replacement = pointer.next.next
-
-            del pointer.next
-
-            pointer.next = next_replacement
+            if pointer is None:
+                is_removed = False
+            else:
+                next_replacement = pointer.next.next
+                del pointer.next
+                pointer.next = next_replacement
+                is_removed = True
 
         self._count -= 1
+
+        return is_removed
 
     def remove_all(self, item: Any) -> None:
         """Remove all occurrences of item on list."""
@@ -180,26 +194,22 @@ class LinkedList:
     def get_previous_pointer(self, item: Any) -> Node:
         """Get previous pointer of the first node containing item on the list.
 
-        Raises ValueError if item is not found on the list.
+        Return None if not found.
         """
         if self.is_empty():
-            raise ValueError("Linked list is empty.")
+            found_node = None
         elif self.is_singular():
-            if self.head.value != item:
-                raise ValueError("Item {} is not on list".format(item))
-            return self.head
+            found_node = self.head if self.head.value == item else None
         else:
-
+            found_node = None
             node = self.head
-
             while node.next is not None:
                 if node.next.value == item:
+                    found_node = node
                     break
                 node = node.next
-            else:
-                raise ValueError("Item {} is not on list".format(item))
 
-            return node
+        return found_node
 
     def is_empty(self) -> bool:
         """Check if list is empty."""
