@@ -93,6 +93,21 @@ class LinkedList:
         except Exception as exc:
             raise exc
 
+    def add_tail(self, item: Any) -> None:
+        """Add item on the tail of the list."""
+        try:
+            node = Node(item)
+
+            tail = self.get_tail()
+
+            if tail is None:
+                self.head = node
+            else:
+                tail.next = node
+
+        except Exception as exc:
+            raise exc
+
     def remove(self, item: Any) -> None:
         """Remove node containing item on the list."""
         if self.is_empty():
@@ -384,5 +399,5 @@ class DoublyLinkedList:
             self.remove(item)
 
 
-singly = LinkedList(1,2,3)
+singly = LinkedList(1, 2, 3)
 doubly = DoublyLinkedList(1, 2, 3)
