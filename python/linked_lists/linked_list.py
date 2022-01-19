@@ -149,10 +149,17 @@ class LinkedList:
 
         return is_removed
 
-    def remove_all(self, item: Any) -> None:
-        """Remove all occurrences of item on list."""
+    def remove_all(self, item: Any) -> int:
+        """Remove all occurrences of item on list.
+
+        Returns count of deleted items
+        """
+        count = 0
         while item in self:
             self.remove(item)
+            count += 1
+
+        return count
 
     def find(self, item: Any) -> Node:
         """Find and return the first node containing the item on the list.
@@ -429,10 +436,16 @@ class DoublyLinkedList:
 
         return is_removed
 
-    def remove_all(self, item: Any) -> None:
-        """Remove all nodes containing item on the linked list."""
+    def remove_all(self, item: Any) -> int:
+        """Remove all nodes containing item on the linked list.
+
+        Returns the count of items removed.
+        """
+        count = 0
         while item in self:
             self.remove(item)
+            count += 1
+        return count
 
 
 s = LinkedList(1, 2, 3)
