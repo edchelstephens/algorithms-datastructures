@@ -245,7 +245,10 @@ class DoublyLinkedList:
 
         while pointer is not None:
             representation += "Node(id={}, previous={}, value={}, next={})".format(
-                id(pointer), id(pointer.previous), pointer.value, id(pointer.next)
+                id(pointer),
+                id(pointer.previous) if pointer.previous is not None else None,
+                pointer.value,
+                id(pointer.next) if pointer.next is not None else None,
             )
 
             if pointer.next is not None:
@@ -272,7 +275,6 @@ class DoublyLinkedList:
             tail = self.get_tail()
             tail.next = node
             node.previous = tail
-            self.head.previous = node
 
     def get_tail(self) -> Node | None:
         """Return the last node in the linked list."""
@@ -356,7 +358,7 @@ class DoublyLinkedList:
             node = self.find(item)
             if node is self.head:
                 self.head = node.next
-                self.head.previous = node.previous
+                self.head.previous = None
             else:
                 previous_pointer = self.get_previous_pointer(item)
                 next_pointer = node.next
@@ -371,4 +373,4 @@ class DoublyLinkedList:
             self.remove(item)
 
 
-d = DoublyLinkedList(1, 2, 3, 1, 2, 3)
+d = DoublyLinkedList(1, 2, 3)
