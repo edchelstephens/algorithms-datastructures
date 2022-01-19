@@ -82,6 +82,17 @@ class LinkedList:
         except Exception as exc:  # pragma no cover
             raise exc
 
+    def add_head(self, item: Any) -> None:
+        """Add item on the head of the list."""
+        try:
+            node = Node(item)
+
+            node.next = self.head
+            self.head = node
+
+        except Exception as exc:
+            raise exc
+
     def remove(self, item: Any) -> None:
         """Remove node containing item on the list."""
         if self.is_empty():
@@ -373,4 +384,5 @@ class DoublyLinkedList:
             self.remove(item)
 
 
-d = DoublyLinkedList(1, 2, 3)
+singly = LinkedList(1,2,3)
+doubly = DoublyLinkedList(1, 2, 3)

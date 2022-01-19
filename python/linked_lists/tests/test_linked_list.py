@@ -33,10 +33,11 @@ def test_str_single_list() -> None:
 
     assert expected == str(linked_list)
 
+
 def test_str_multi_list() -> None:
     """linked list str should resemble list items"""
 
-    linked_list = LinkedList(1,2,3)
+    linked_list = LinkedList(1, 2, 3)
 
     expected = "[1 -> 2 -> 3]"
 
