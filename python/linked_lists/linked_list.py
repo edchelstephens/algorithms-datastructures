@@ -124,15 +124,14 @@ class LinkedList:
 
         Returns True if removed, False if not.
         """
+        is_removed = False
+
         if self.is_empty():
             is_removed = False
-        elif self.is_singular():
-            if self.head.value != item:
-                is_removed = False
-            else:
-                del self.head
-                self.head = None
-                is_removed = True
+        elif self.is_singular() and self.head.value == item:
+            del self.head
+            self.head = None
+            is_removed = True
         elif self.head.value == item:
             next_head = self.head.next
             del self.head
@@ -140,9 +139,7 @@ class LinkedList:
             is_removed = True
         else:
             pointer = self.get_previous_pointer(item)
-            if pointer is None:
-                is_removed = False
-            else:
+            if pointer is not None:
                 next_replacement = pointer.next.next
                 del pointer.next
                 pointer.next = next_replacement
@@ -154,21 +151,8 @@ class LinkedList:
 
     def remove_all(self, item: Any) -> None:
         """Remove all occurrences of item on list."""
-
-        if self.is_empty():
-            raise ValueError("List is empty")
-
-        elif self.is_singular():
-            if self.head.value != item:
-                raise ValueError("Item {} is not on list".format(item))
-            else:
-                self.head = None
-        else:
-            while item in self:
-                try:
-                    self.remove(item)
-                except ValueError as exc:
-                    break
+        while item in self:
+            self.remove(item)
 
     def find(self, item: Any) -> Node:
         """Find and return the first node containing the item on the list.
@@ -399,49 +383,57 @@ class DoublyLinkedList:
 
     def get_previous_pointer(self, item: Any) -> DoublyNode:
         """Find the node before the node containing the item."""
+
+        found_node = None
+
         node = self.find(item)
 
         if node is not None:
-            pointer = node.previous
-        else:
-            raise ValueError("{} is not on the list".format(item))
+            found_node = node.previous
 
-        return pointer
+        return found_node
 
     def is_singular(self) -> bool:
         """Check if list is singular."""
         return not self.is_empty() and self.head.next is None
 
-    def remove(self, item: Any) -> None:
+    def remove(self, item: Any) -> bool:
         """Remove item on the list"""
+        is_removed = False
 
         if self.is_empty():
-            raise ValueError("List is empty")
+            is_removed = False
         elif self.is_singular():
             if item == self.head.value:
                 self.head = None
-            else:
-                raise ValueError("item {} is not on list".format(item))
+                is_removed = True
         else:
             node = self.find(item)
             if node is self.head:
                 self.head = node.next
                 self.head.previous = None
+                is_removed = True
             else:
                 previous_pointer = self.get_previous_pointer(item)
-                next_pointer = node.next
 
-                previous_pointer.next = next_pointer
-                if next_pointer is not None:
-                    next_pointer.previous = previous_pointer
+                if previous_pointer is not None:
+                    next_pointer = node.next
+
+                    previous_pointer.next = next_pointer
+                    if next_pointer is not None:
+                        next_pointer.previous = previous_pointer
+
+                    is_removed = True
 
         self._count -= 1
 
-    def remove_all(self, item: Any):
+        return is_removed
+
+    def remove_all(self, item: Any) -> None:
         """Remove all nodes containing item on the linked list."""
         while item in self:
             self.remove(item)
 
 
-singly = LinkedList(1, 2, 3)
-doubly = DoublyLinkedList(1, 2, 3)
+s = LinkedList(1, 2, 3)
+d = DoublyLinkedList(1, 2, 3)
