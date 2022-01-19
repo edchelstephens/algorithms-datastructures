@@ -40,6 +40,7 @@ class LinkedList:
     def __init__(self, *items, **kwargs):
         """Construct linked list from given items."""
         try:
+            self._count = 0
             self.head = None
             for item in items:
                 self.insert(item)
@@ -79,6 +80,8 @@ class LinkedList:
                 tail = self.get_tail()
                 tail.next = node
 
+            self._count += 1
+
         except Exception as exc:  # pragma no cover
             raise exc
 
@@ -89,6 +92,8 @@ class LinkedList:
 
             node.next = self.head
             self.head = node
+
+            self._count += 1
 
         except Exception as exc:
             raise exc
@@ -104,6 +109,8 @@ class LinkedList:
                 self.head = node
             else:
                 tail.next = node
+
+            self._count += 1
 
         except Exception as exc:
             raise exc
@@ -128,6 +135,8 @@ class LinkedList:
             del pointer.next
 
             pointer.next = next_replacement
+
+        self._count -= 1
 
     def remove_all(self, item: Any) -> None:
         """Remove all occurrences of item on list."""
@@ -231,17 +240,7 @@ class LinkedList:
 
     def get_count(self) -> int:
         """Get the count of total items on the linked list."""
-        try:
-            count = 0
-            pointer = self.head
-
-            while pointer is not None:
-                count += 1
-                pointer = pointer.next
-
-            return count
-        except Exception as exc:  # pragma no cover
-            raise exc
+        return self._count
 
     def empty(self) -> None:
         """Empty the list."""
