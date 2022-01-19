@@ -448,5 +448,17 @@ class DoublyLinkedList:
         return count
 
 
+class CircularLinkedList(LinkedList):
+    """Circular linked list with tail.next pointing to head."""
+
+    pass
+
+
+class SortedDoublyLinkedList(DoublyLinkedList):
+    """Sorted doubly linked list"""
+
+    pass
+
+
 s = LinkedList(1, 2, 3)
 d = DoublyLinkedList(1, 2, 3)
