@@ -304,11 +304,26 @@ class DoublyLinkedList:
 
     def add_head(self, item: Any) -> None:
         """Insert item on the head of the list."""
+        try:
+            node = DoublyNode(item)
+
+            node.next = self.head
+            self.head = node
+        except Exception as exc:
+            raise exc
+
+    def add_tail(self, item: Any) -> None:
+        """Insert item on the tail of the list."""
 
         node = DoublyNode(item)
 
-        node.next = self.head
-        self.head = node
+        tail = self.get_tail()
+
+        if tail is None:
+            self.head = node
+        else:
+            node.previous = tail
+            tail.next = node
 
     def get_tail(self) -> Node | None:
         """Return the last node in the linked list."""
