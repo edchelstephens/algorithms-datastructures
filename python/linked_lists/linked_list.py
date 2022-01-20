@@ -335,6 +335,34 @@ class DoublyLinkedList:
 
         self._count += 1
 
+    def remove_head(self) -> None:
+        """Remove the item on the head."""
+
+        if self.is_empty():
+            pass
+        elif self.is_singular():
+            del self.head
+            self.head = None
+        else:
+            head = self.head
+            next_head = head.next
+            next_head.previous = None
+            self.head = next_head
+
+    def remove_tail(self) -> None:
+        """Remove the item on the tail."""
+
+        if self.is_empty():
+            pass
+        elif self.is_singular():
+            del self.head
+            self.head = None
+        else:
+            tail = self.get_tail()
+            previous = tail.previous
+            del tail
+            previous.next = None
+
     def get_tail(self) -> Node | None:
         """Return the last node in the linked list."""
         try:
@@ -750,9 +778,3 @@ class SortedDoublyLinkedList(DoublyLinkedList):
     def add_tail(self, item: Any) -> None:
         raise NotImplementedError
 
-
-s = LinkedList(1, 2, 3)
-d = DoublyLinkedList(1, 2, 3)
-c = CircularLinkedList()
-sl = SortedLinkedList(5, 2, 3)
-sd = SortedDoublyLinkedList(3, 2, 1)
