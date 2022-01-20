@@ -105,16 +105,19 @@ class DoublyLinkedList:
 
         self._count += 1
 
-    def remove_head(self) -> None:
+    def remove_head(self) -> Any:
         """Remove the item on the head."""
+        value = None
 
         if self.is_empty():
             pass
         elif self.is_singular():
+            value = self.head.value
             del self.head
             self.head = None
             self._count -= 1
         else:
+            value = self.head.value
             head = self.head
             next_head = head.next
             next_head.previous = None
@@ -122,21 +125,28 @@ class DoublyLinkedList:
 
             self._count -= 1
 
+        return value
+
     def remove_tail(self) -> None:
         """Remove the item on the tail."""
 
+        value = None
         if self.is_empty():
             pass
         elif self.is_singular():
+            value = self.head.value
             del self.head
             self.head = None
             self._count -= 1
         else:
             tail = self.get_tail()
+            value = tail.value
             previous = tail.previous
             del tail
             previous.next = None
             self._count -= 1
+
+        return value
 
     def get_tail(self) -> DoublyNode | None:
         """Return the last node in the linked list."""
@@ -274,11 +284,11 @@ class Dequeue:
 
     def dequeue_head(self) -> None:
         """Remove item on the head."""
-        self.store.remove_head()
+        return self.store.remove_head()
 
     def dequeue_tail(self) -> None:
         """Remove item on the tail"""
-        self.store.remove_tail()
+        return self.store.remove_tail()
 
     def get_count(self) -> int:
         """Get the count of items on the queue"""
