@@ -113,11 +113,14 @@ class DoublyLinkedList:
         elif self.is_singular():
             del self.head
             self.head = None
+            self._count -= 1
         else:
             head = self.head
             next_head = head.next
             next_head.previous = None
             self.head = next_head
+
+            self._count -= 1
 
     def remove_tail(self) -> None:
         """Remove the item on the tail."""
@@ -127,11 +130,13 @@ class DoublyLinkedList:
         elif self.is_singular():
             del self.head
             self.head = None
+            self._count -= 1
         else:
             tail = self.get_tail()
             previous = tail.previous
             del tail
             previous.next = None
+            self._count -= 1
 
     def get_tail(self) -> DoublyNode | None:
         """Return the last node in the linked list."""
@@ -327,4 +332,6 @@ class Queue:
         """Get count of items on queue."""
         return self.store.get_count()
 
-q = Queue(1,2,3)
+
+dq = Dequeue(1, 2, 3)
+q = Queue(1, 2, 3)
