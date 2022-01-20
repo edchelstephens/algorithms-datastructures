@@ -808,3 +808,25 @@ class Dequeue:
     def get_count(self) -> int:
         """Get the count of items on the queue"""
         return self.store.get_count()
+
+    def peek_head(self) -> Any:
+        """Get the head item without dequeuing it."""
+
+        head = self.store.head
+        value = None
+        if head is not None:
+            value = head.value
+
+        return value
+
+    def peek_tail(self) -> Any:
+        """Get the tail item without dequeuing it."""
+
+        tail = self.store.get_tail()
+
+        value = None
+
+        if tail is not None:
+            value = tail.value
+
+        return value
