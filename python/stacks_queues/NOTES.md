@@ -18,10 +18,13 @@
 
 - A first-in, first-out (fifo) data container
 
-- enqueue
+- Actions
+- `enqueue`
 
-  - add item on the queue
+  - add item on the queue - `enqueuing`
 
+- `dequeue`
+  - remove head item on the queue, `dequeuing`
 - head
 
   - first item on the queue
