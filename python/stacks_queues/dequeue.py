@@ -785,6 +785,10 @@ class Dequeue:
     def __init__(self, *items) -> None:
         self.store = DoublyLinkedList(*items)
 
+    def __repr__(self) -> str:
+        items = str(self.store)
+        return "Dequeue: {}".format(items)
+
     def enqueue_head(self, item: Any) -> None:
         """Add item on the head."""
         self.store.add_head(item)
@@ -793,8 +797,14 @@ class Dequeue:
         """Add item on the tail."""
         self.store.add_tail(item)
 
-    def dequeue_head(self, item: Any) -> None:
-        raise NotImplementedError
+    def dequeue_head(self) -> None:
+        """Remove item on the head."""
+        self.store.remove_head()
 
-    def dequeue_tail(self, item: Any) -> None:
-        raise NotImplementedError
+    def dequeue_tail(self) -> None:
+        """Remove item on the tail"""
+        self.store.remove_tail()
+
+    def get_count(self) -> int:
+        """Get the count of items on the queue"""
+        return self.store.get_count()
