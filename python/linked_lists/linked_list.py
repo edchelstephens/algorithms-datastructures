@@ -471,6 +471,10 @@ class CircularLinkedList(LinkedList):
     def __repr__(self) -> str:
         return str(self)
 
+    def __contains__(self, item: Any) -> bool:
+        """Check if item is on the list."""
+        return self.find(item) is not None
+
     def is_singular(self) -> bool:
         """Check if list contains single item."""
         return not self.is_empty() and self.head.next is self.head
@@ -528,6 +532,30 @@ class CircularLinkedList(LinkedList):
         except Exception as exc:
             raise exc
 
+    def find(self, item: Any) -> Node:
+        """Find and return the first node containing the item on the list.
+
+        Return null if not found.
+        """
+        try:
+            found_node = None
+
+            node = self.head
+
+            while node is not None:
+                if node.value == item:
+                    found_node = node
+                    break
+                node = node.next
+
+                if node == self.head:
+                    break
+
+            return found_node
+
+        except Exception:
+            return None
+
     def remove(self, item: Any) -> bool:
         """Remove node containing item on the list.
 
@@ -559,6 +587,18 @@ class CircularLinkedList(LinkedList):
         self._count -= 1
 
         return is_removed
+
+    def remove_all(self, item: Any) -> int:
+        """Remove all occurrences of item on list.
+
+        Returns count of deleted items
+        """
+        count = 0
+        while item in self:
+            self.remove(item)
+            count += 1
+
+        return count
 
     def get_previous_pointer(self, item: Any) -> Node:
         """Get previous pointer of the first node containing item on the list.
