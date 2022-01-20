@@ -35,4 +35,4 @@
 # Dequeue
 
 - A double ended queue
-- A queue like container which is both first-in, first-out (fifo) and last-in, last-out (lifo)
+- A queue like container which is both first-in, first-out (fifo) and last-in, last-out (lilo)
