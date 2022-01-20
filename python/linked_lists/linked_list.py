@@ -457,8 +457,54 @@ class CircularLinkedList(LinkedList):
 class SortedDoublyLinkedList(DoublyLinkedList):
     """Sorted doubly linked list"""
 
-    pass
+    def __repr__(self) -> str:
+        return str(self)
+
+    def insert(self, item: Any) -> None:
+        """Insert item on doubly linked list."""
+
+        node = DoublyNode(item)
+
+        if self.head is None:
+            self.head = node
+        elif self.head.value > item:
+            node.next = self.head
+            self.head.previous = node
+            self.head = node
+        else:
+            previous_node = self.get_previous_node_in_order(item)
+            node.previous = previous_node
+            node.next = previous_node.next
+            previous_node.next = node
+
+        self._count += 1
+
+    def get_previous_node_in_order(self, item: Any) -> DoublyNode:
+        """Get the previous node on which to add the item in ascending order.
+
+        This is reliant that the empty head node and if the head node is the lesser than item has already been handled.
+        """ 
+
+        pointer = self.head
+        previous_pointer = pointer
+        
+        while pointer is not None and pointer.value < item:
+            previous_pointer = pointer
+            pointer = pointer.next
+
+        return previous_pointer
+
+    def add(self, item) -> None:
+        """Add item on the list."""
+        self.insert(item)
+
+    def add_head(self, item: Any) -> None:
+        raise NotImplementedError
+
+    def add_tail(self, item: Any) -> None:
+        raise NotImplementedError
 
 
 s = LinkedList(1, 2, 3)
 d = DoublyLinkedList(1, 2, 3)
+sd = SortedDoublyLinkedList()
