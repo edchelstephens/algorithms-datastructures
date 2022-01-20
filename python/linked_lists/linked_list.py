@@ -448,10 +448,167 @@ class DoublyLinkedList:
         return count
 
 
+class CircularNode:
+    """A node element containing a value and a reference to the next node."""
+
+    def __init__(self, value) -> None:
+        """Initialize node with given value."""
+        self.value = value
+        self.next = None
+
+    def __repr__(self):
+        """Node representation."""
+        return "[{}]".format(self.value)
+
+
 class CircularLinkedList(LinkedList):
     """Circular linked list with tail.next pointing to head."""
 
-    pass
+    def __str__(self) -> str:
+        items = self.get_items()
+        return str(items)
+
+    def __repr__(self) -> str:
+        return str(self)
+
+    def is_singular(self) -> bool:
+        """Check if list contains single item."""
+        return not self.is_empty() and self.head.next is self.head
+
+    def insert(self, item: Any) -> None:
+        """Insert item to linked list."""
+        try:
+            node = CircularNode(item)
+
+            if self.is_empty():
+                self.head = node
+                self.head.next = self.head
+            else:
+                tail = self.get_tail()
+                tail.next = node
+                node.next = self.head
+
+            self._count += 1
+
+        except Exception as exc:  # pragma no cover
+            raise exc
+
+    def add(self, item: Any) -> None:
+        """Add item on the list."""
+        self.insert(item)
+
+    def add_head(self, item: Any) -> None:
+        """Add item on the head of the list."""
+        try:
+            node = CircularNode(item)
+
+            node.next = self.head
+            self.head = node
+
+            self._count += 1
+
+        except Exception as exc:
+            raise exc
+
+    def add_tail(self, item: Any) -> None:
+        """Add item on the tail of the list."""
+        try:
+            node = CircularNode(item)
+
+            tail = self.get_tail()
+
+            if tail is None:
+                self.head = node
+            else:
+                tail.next = node
+                node.next = self.head
+
+            self._count += 1
+
+        except Exception as exc:
+            raise exc
+
+    def remove(self, item: Any) -> bool:
+        """Remove node containing item on the list.
+
+        Returns True if removed, False if not.
+        """
+        is_removed = False
+
+        if self.is_empty():
+            is_removed = False
+        elif self.is_singular() and self.head.value == item:
+            del self.head
+            self.head = None
+            is_removed = True
+        elif self.head.value == item:
+            next_head = self.head.next
+            tail = self.get_tail()
+            del self.head
+            self.head = next_head
+            tail.next = self.head
+            is_removed = True
+        else:
+            pointer = self.get_previous_pointer(item)
+            if pointer is not None:
+                next_replacement = pointer.next.next
+                del pointer.next
+                pointer.next = next_replacement
+                is_removed = True
+
+        self._count -= 1
+
+        return is_removed
+
+    def get_previous_pointer(self, item: Any) -> Node:
+        """Get previous pointer of the first node containing item on the list.
+
+        Return None if not found.
+        """
+        if self.is_empty():
+            found_node = None
+        elif self.is_singular():
+            found_node = self.head if self.head.value == item else None
+        else:
+            found_node = None
+            node = self.head
+            while node.next is not self.head:
+                if node.next.value == item:
+                    found_node = node
+                    break
+                node = node.next
+
+        return found_node
+
+    def get_tail(self) -> Node | None:
+        """Return the last node in the linked list."""
+        try:
+            tail = self.head
+
+            if tail is not None:
+                while tail.next is not self.head:
+                    tail = tail.next
+
+            return tail
+        except Exception as exc:  # pragma no cover
+            raise exc
+
+    def get_items(self) -> list:
+        """Return a list of items for the node values on the linked list."""
+        try:
+            items = []
+            pointer = self.head
+
+            while pointer is not None:
+                items.append(pointer.value)
+                pointer = pointer.next
+
+                if pointer is self.head:
+                    break
+
+            return items
+        except Exception as exc:  # pragma no cover
+            raise exc
 
 
 class SortedLinkedList(LinkedList):
@@ -556,5 +713,6 @@ class SortedDoublyLinkedList(DoublyLinkedList):
 
 s = LinkedList(1, 2, 3)
 d = DoublyLinkedList(1, 2, 3)
+c = CircularLinkedList()
 sl = SortedLinkedList(5, 2, 3)
 sd = SortedDoublyLinkedList(3, 2, 1)
