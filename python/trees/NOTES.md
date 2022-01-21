@@ -93,5 +93,7 @@
 
 ## Traversal Complexities:
 
-Average: O(log n)
+Average: O(n)
 Worst Case: O(n)
+
+- It's always gonna be O(n) since we're gonna traverse each node of the tree
