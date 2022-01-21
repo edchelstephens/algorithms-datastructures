@@ -60,11 +60,15 @@
 
 - Visit the left child
 - Visit the right child
-- Process the value
+- Process the current value
 
 ## Pre-order Traversal
 
 - The node is visited before it's children
+- Process the current value
+- Visit the left child
+- Visit the right child
+
 
 ## In-order Traversal
 
