@@ -52,3 +52,6 @@
 - Insertion:
   average - O(log n)
   worst case - O(n)
+
+- A binary search tree can be a balanced tree where insertion is O(log n)
+ or imbalanced, only on the left side or right side, therefore insertion is O(n)
