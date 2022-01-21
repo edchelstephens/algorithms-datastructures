@@ -75,6 +75,12 @@
 
 - The left child is visited before the node, then the right child
 
+- Visit the left child
+- Process the current value
+- Visit the right child
+
+- In order traversal is traversing the binary search tree from least to greatest
+
 ## Post-order Traversal
 
 - The left and right children are visited before the node
