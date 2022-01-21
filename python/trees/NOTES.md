@@ -97,3 +97,8 @@ Average: O(n)
 Worst Case: O(n)
 
 - It's always gonna be O(n) since we're gonna traverse each node of the tree
+
+# Search complexity in Binary Search Trees:
+
+Average: O(log n) - balanced tree
+Worst: O(n) -> imbalanced tree
