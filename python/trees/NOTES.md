@@ -54,4 +54,22 @@
   worst case - O(n)
 
 - A binary search tree can be a balanced tree where insertion is O(log n)
- or imbalanced, only on the left side or right side, therefore insertion is O(n)
+  or imbalanced, only on the left side or right side, therefore insertion is O(n)
+
+> > Traversal Operations
+
+- Visit the left child
+- Visit the right child
+- Process the value
+
+## Pre-order Traversal
+
+- The node is visited before it's children
+
+## In-order Traversal
+
+- The left child is visited before the node, then the right child
+
+## Post-order Traversal
+
+- The left and right children are visited before the node
