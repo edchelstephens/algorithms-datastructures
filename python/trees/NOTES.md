@@ -44,3 +44,11 @@
 # Binary Search Tree
 
 - A binary tree where nodes with lesser values are placed to the left of the root, and nodes with equal or greater values are placed to the right
+
+- The smallest value is in the left most node(left most leaf) and the greatest value is in the right most node(the right most leaf)
+
+> > Complexities
+
+- Insertion:
+  average - O(log n)
+  worst case - O(n)
