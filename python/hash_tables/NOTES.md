@@ -7,3 +7,13 @@
 # Hash Table
 
 - An associative array container that provides O(1) insert, delete and search operations
+
+# Hash function
+
+- a function that maps data of arbitrary size to data of a fixed size
+
+hash function examples:
+
+- verifying downloaded data
+- storing password in a database
+- hash tables key lookup
