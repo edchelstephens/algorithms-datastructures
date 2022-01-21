@@ -88,3 +88,5 @@
 - Visit the left child
 - Visit the right child
 - Process the current value
+
+- Post oder traversal is used for deleting all the nodes in the tree
