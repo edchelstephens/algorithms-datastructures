@@ -52,6 +52,56 @@ class BinarySearchTree:
         """Print the binary search tree in pre-order traversal."""
         self.pre_order(print, self.root)
 
+    def in_order(self, action: Callable, node: BinaryTreeNode) -> None:
+        """Traverse the node in in-order and do action."""
+        if node is not None:
+            self.in_order(action, node.left)
+            action(node.value)
+            self.in_order(action, node.right)
+
+    def print_in_order(self) -> None:
+        """Traverse and print the tree in-order."""
+        self.in_order(print, self.root)
+
     def get_count(self) -> None:
         """Get the count of nodes in the tree."""
         return self._count
+
+
+# A binary search tree
+#    12
+#  7   14
+# 3 7    18
+b = BinarySearchTree()
+b.root = BinaryTreeNode(12)
+b.root.left = BinaryTreeNode(7)
+b.root.left.left = BinaryTreeNode(3)
+b.root.left.right = BinaryTreeNode(7)
+b.root.right = BinaryTreeNode(14)
+b.root.right.right = BinaryTreeNode(18)
+
+print("=== Pre order ===")
+b.print_pre_order()
+print()
+# b.print_pre_order()
+# 12 7 3 7 14 18 
+
+# 12
+# 7
+# 3
+# 7
+# 14
+# 18
+
+print("=== In order ===")
+b.print_in_order()
+print()
+# b.print_in_order()
+# 3 7 7 12 14 18 
+
+# 3
+# 7
+# 7
+# 12
+# 14
+# 18
