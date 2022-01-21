@@ -84,3 +84,7 @@
 ## Post-order Traversal
 
 - The left and right children are visited before the node
+
+- Visit the left child
+- Visit the right child
+- Process the current value
