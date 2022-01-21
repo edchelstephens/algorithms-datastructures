@@ -69,6 +69,7 @@
 - Visit the left child
 - Visit the right child
 
+- Pre order is useful on copying an entire tree structure
 
 ## In-order Traversal
 
