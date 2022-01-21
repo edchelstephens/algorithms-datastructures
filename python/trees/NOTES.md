@@ -90,3 +90,8 @@
 - Process the current value
 
 - Post oder traversal is used for deleting all the nodes in the tree
+
+## Traversal Complexities:
+
+Average: O(log n)
+Worst Case: O(n)
