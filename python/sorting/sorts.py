@@ -14,8 +14,15 @@ def timer(f: Callable) -> Callable:
         start = time.time()
         result = f(*args, **kwargs)
         time_elapsed = time.time() - start
+        lasted_in_seconds = time_elapsed >= 1
 
-        print("Function:{}() Time Elapsed:{:.5f}ms".format(f.__name__, time_elapsed*1000))
+        print(
+            "Function: {}() Time Elapsed: {:.5f}{}".format(
+                f.__name__,
+                time_elapsed if lasted_in_seconds else time_elapsed * 1000,
+                "s" if lasted_in_seconds else "ms",
+            )
+        )
 
         return result
 
