@@ -1,14 +1,9 @@
-from string import ascii_letters
-
-def stable_hash(alphabet_string:str) -> int:
+def stable_hash(input_string: str) -> int:
     """A stable hash function."""
-
-    lowercase_input = alphabet_string.lower()
-    table = { letter: i+1 for i, letter in enumerate(ascii_letters)}
 
     value = 0
 
-    for character in lowercase_input:
-        value += table[character]
+    for character in input_string:
+        value += ord(character)
 
     return value

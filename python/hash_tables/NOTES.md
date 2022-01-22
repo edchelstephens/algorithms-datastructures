@@ -35,3 +35,13 @@ It has to be:
 3. Secure
    - If you have a hash result, it shouldn't be easy to determine values that would produce that result
    - A secure hashing algorithm cannot be inverted(the input derived from the output hash)
+
+# Hash Output size
+
+128 bits
+
+- MD5 (message-digest algorithm)
+
+256 bits:
+
+- SHA 256
