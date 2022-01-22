@@ -1,4 +1,4 @@
-def stable_hash(input_string: str) -> int:
+def additive_hash(input_string: str) -> int:
     """A stable hash function."""
 
     value = 0
