@@ -55,4 +55,9 @@ It has to be:
 - Collisions in a hash table are chained together into a linked list whose root node is the hash table array entry.
 
 # Fill factor
+
 - the percentage of capacity representing the maximum number of entries before the table will grow, e.g. 0.8 or 80% full before growing the size
+
+# Growth Factor
+
+- the multiple to increase the capacity of the hash table when the fill factor has been exceeded, e.g. 1.50, increase by half
