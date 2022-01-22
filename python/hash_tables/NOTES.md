@@ -61,3 +61,10 @@ It has to be:
 # Growth Factor
 
 - the multiple to increase the capacity of the hash table when the fill factor has been exceeded, e.g. 1.50, increase by half
+
+# Finding a value in the hash table using key
+
+- Find the index
+- Use the hash function
+- Module the hash of the size of the hash table to get the index
+- Search entry list of entries to find one element that matches the key
