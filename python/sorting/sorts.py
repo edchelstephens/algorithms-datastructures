@@ -11,11 +11,11 @@ def timer(f: Callable) -> Callable:
     @functools.wraps(f)
     def wrapper(*args, **kwargs):
         """Wrapper function to log time of execution of function f."""
-        start = time.perf_counter()
+        start = time.time()
         result = f(*args, **kwargs)
-        time_elapsed = time.perf_counter() - start
+        time_elapsed = time.time() - start
 
-        print("Function:{}() Time Elapsed:{:.15f}".format(f.__name__, time_elapsed))
+        print("Function:{}() Time Elapsed:{:.5f}ms".format(f.__name__, time_elapsed*1000))
 
         return result
 
@@ -51,6 +51,7 @@ def bubble_sort(data: list) -> None:
                 swap(data, i, i - 1)
                 is_continue = True
 
+
 @timer
 def insertion_sort(data) -> None:
     """Sort the data using insertion sort."""
@@ -61,6 +62,7 @@ def insertion_sort(data) -> None:
             while p > 0:
                 if less_than(data, p, p - 1):
                     swap(data, p, p - 1)
+                    p -= 1
                 else:
                     break
 
