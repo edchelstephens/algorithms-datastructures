@@ -1,8 +1,6 @@
 from typing import Callable
 
-
 import random
-
 import time
 import functools
 
@@ -24,23 +22,53 @@ def timer(f: Callable) -> Callable:
     return wrapper
 
 
+def greater_than(data: list, i: int, j: int) -> bool:
+    """Check if data[i] is greater than data[j]."""
+    return data[i] > data[j]
+
+
+def less_than(data: list, i: int, j: int) -> bool:
+    """Check if data[i] is greater than data[j]."""
+    return data[i] < data[j]
+
+
+def swap(data: list, i: int, j: int) -> bool:
+    """Swap data[i] with data[j]."""
+    temp = data[i]
+    data[i] = data[j]
+    data[j] = temp
+
+
 @timer
-def bubble_sort(array: list) -> list:
-    """Sort the array using bubble sort."""
+def bubble_sort(data: list) -> None:
+    """Sort the data using bubble sort."""
 
     is_continue = True
     while is_continue:
         is_continue = False
-        for i in range(1, len(array)):
-            if array[i - 1] > array[i]:
-                temp = array[i]
-                array[i] = array[i - 1]
-                array[i - 1] = temp
+        for i in range(1, len(data)):
+            if greater_than(data, i - 1, i):
+                swap(data, i, i - 1)
                 is_continue = True
 
+@timer
+def insertion_sort(data) -> None:
+    """Sort the data using insertion sort."""
 
-def get_sample_data(size=100) -> list:
+    for i in range(1, len(data)):
+        if less_than(data, i, i - 1):
+            p = i
+            while p > 0:
+                if less_than(data, p, p - 1):
+                    swap(data, p, p - 1)
+                else:
+                    break
+
+
+def sampler(size=100, copies=4) -> list:
     """Get sample data to sort."""
-    return [ random.randrange(1000) for i in range(size)]
+    data = [random.randrange(1000) for i in range(size)]
+    return tuple([data[:] for i in range(copies)])
 
 
+a, b, c, d = sampler()
