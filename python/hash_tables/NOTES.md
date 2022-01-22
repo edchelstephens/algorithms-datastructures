@@ -30,7 +30,7 @@ It has to be:
 
 2. Uniform
 
-   - the hash function will distribute hash values it generates uniformly across its space.
+   - the hash function will distribute hash values it generates uniformly across its output space.
 
 3. Secure
    - If you have a hash result, it shouldn't be easy to determine values that would produce that result
