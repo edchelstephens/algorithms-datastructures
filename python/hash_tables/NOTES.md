@@ -45,3 +45,11 @@ It has to be:
 256 bits:
 
 - SHA 256
+
+# Hash collision
+
+- When multiple distinct keys would be inserted at the same hash table index
+
+# Separate Chaining
+
+- Collisions in a hash table are chained together into a linked list whose root node is the hash table array entry.
