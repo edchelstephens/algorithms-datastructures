@@ -9,3 +9,7 @@
 
 - The value in the current tree node is lesser than, or equal to, it's children(min-heap)
   The minimum value is the root node that's why we can always access it in O(1) time
+
+# Complete Tree
+
+- A tree where every level is filled out from left-to-right before starting the next level
