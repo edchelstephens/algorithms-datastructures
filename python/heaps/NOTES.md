@@ -19,3 +19,6 @@ Pop - removing min or max value from the top, root node
 # Complete Tree
 
 - A tree where every level is filled out from left-to-right before starting the next level
+
+# Priority Queue
+A queue that pops item in priority, not First-in First-out (FIFO) order
